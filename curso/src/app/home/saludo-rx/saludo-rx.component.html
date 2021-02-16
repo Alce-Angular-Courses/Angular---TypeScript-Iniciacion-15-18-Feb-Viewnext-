@@ -1,0 +1,5 @@
+
+<h2>Componente saludo Rx</h2>
+<input type="text" [placeholder]="mens" [formControl]="fcName">
+<p>Hola {{ fcName.value ? fcName.value : 'amigo' }}</p>
+<button type="button" (click)="onClick($event)">Borrar</button>

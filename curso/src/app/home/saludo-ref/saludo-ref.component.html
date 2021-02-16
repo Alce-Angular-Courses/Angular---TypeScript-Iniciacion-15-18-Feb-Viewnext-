@@ -1,0 +1,5 @@
+<h2>Componente saludo-ref</h2>
+<input type="text" placeholder="Dime tu nombre"
+(input)="name.value = name.value" #name>
+<p>Hola {{ name.value ? name.value : 'amigo' }}</p>
+<button type="button" (click)="name.value = '' ">Borrar</button>
