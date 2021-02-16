@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./head.component.scss']
 })
 export class HeadComponent implements OnInit {
+  titulo: string;
+  logo: string;
+  constructor() {
 
-  constructor() { }
+  }
 
   ngOnInit(): void {
+    this.titulo = 'Curso Angular 11 para Viewnext'
+    this.logo = '../../assets/logo.svg'
   }
 
 }
