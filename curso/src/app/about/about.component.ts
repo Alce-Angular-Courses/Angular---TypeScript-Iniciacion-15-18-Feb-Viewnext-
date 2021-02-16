@@ -3,9 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'vwn-about',
   template: `
-    <p>
-      about works!
-    </p>
+    <vwn-coments></vwn-coments>
   `,
   styles: [
   ]
