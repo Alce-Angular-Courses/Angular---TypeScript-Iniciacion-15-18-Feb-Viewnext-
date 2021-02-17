@@ -11,6 +11,7 @@ export class PostComponent implements OnInit {
 
   ngOnInit(): void {
       this.hoy = new Date()
+      this.hoy
   }
 
 }
