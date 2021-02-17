@@ -1,0 +1,14 @@
+<input type="checkbox"id="is-completa" (change)="onChangeSend()"
+    [(ngModel)]="tarea.isCompleted">
+<span>
+    {{ index + 1 }}  
+</span> -    
+<span class="nombre" [ngClass]="{completed: tarea.isCompleted}">
+    {{tarea.nombre}}
+</span> |
+<span class="responsable">
+    asignada a <b>{{ tarea.responsable}}</b>
+</span> - 
+<span class="boton" (click)="onDeleteSend()">
+    🗑
+</span>

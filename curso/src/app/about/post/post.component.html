@@ -2,7 +2,7 @@
     <ng-content select=".name" ></ng-content>
 </div>
 <p>
-    Fecha: {{ hoy.toLocaleDateString() }}
+    Fecha: {{ hoy | date : 'fullDate'  }}
 </p>
 <div>
     <ng-content select=".contenido"></ng-content>

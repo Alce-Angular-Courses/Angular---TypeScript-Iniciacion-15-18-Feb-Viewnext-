@@ -1,0 +1,16 @@
+<h3>Nueva tarea</h3>
+<div class="form-group">
+    <input class="form-control" type="text" [(ngModel)]="tarea.nombre"
+    placeholder="Describe la tarea">    
+</div>
+<div class="form-group">
+    <label for="responsable">Responsable</label>
+    <input class="form-control" id="responsable" type="text" 
+            [(ngModel)]="tarea.responsable">    
+</div>
+<div class="form-group">
+    <button type="button" class="btn btn-primary" 
+        (click)="onClickSendAdd()">Añadir</button>
+    <button type="button" class="btn btn-primary"
+        (click)="onClickSendDelete()">Borrar todas</button>
+</div>

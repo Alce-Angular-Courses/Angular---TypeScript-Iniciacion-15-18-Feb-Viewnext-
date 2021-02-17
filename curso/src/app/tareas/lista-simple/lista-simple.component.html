@@ -1,0 +1,32 @@
+<h2>lista-simple de tareas!</h2>
+<h3>Nueva tarea</h3>
+<div class="form-group">
+    <input class="form-control" type="text" [(ngModel)]="tarea.nombre"
+    placeholder="Describe la tarea">    
+</div>
+<div class="form-group">
+    <label for="responsable">Responsable</label>
+    <input class="form-control" id="responsable" type="text" 
+            [(ngModel)]="tarea.responsable">    
+</div>
+<div class="form-group">
+    <button type="button" class="btn btn-primary" 
+        (click)="onClickAdd()">Añadir</button>
+    <button type="button" class="btn btn-primary"
+        (click)="onClickDelete()">Borrar todas</button>
+</div>
+
+<ng-container *ngIf="tareas.length; else aviso">
+    <h3>Lista de tareas</h3>
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let item of tareas">
+            {{item.nombre}} | Responsable: {{item.responsable}}
+        </li>
+    </ul>    
+</ng-container>
+
+<ng-template #aviso>
+    <p>Anímate con tu primera tarea</p>
+</ng-template>
+
+

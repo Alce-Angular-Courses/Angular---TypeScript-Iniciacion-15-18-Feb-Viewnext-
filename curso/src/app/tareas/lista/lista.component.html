@@ -1,0 +1,20 @@
+<h2>lista multicomponentes</h2>
+<vwn-nueva (evAdd)="addTarea($event)" (evDelete)="deleteTareas()"></vwn-nueva>
+
+<ng-container *ngIf="tareas.length; else aviso">
+    <h3>Lista de tareas</h3>
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let item of tareas; let i = index">
+            <vwn-item [tarea]="item" [index]="i"
+                (evCheck)="onChangeState($event)"
+                (evDelete)="onDelete($event)"></vwn-item>
+        </li>
+    </ul>    
+</ng-container>
+
+<ng-template #aviso>
+    <p>Anímate con tu primera tarea</p>
+</ng-template>
+
+
+
