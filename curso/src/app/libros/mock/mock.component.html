@@ -1,0 +1,15 @@
+<h2>Mock de libros</h2>
+<input type="text" placeholder="Clave ed búsqueda" [(ngModel)]="clave">
+<button (click)="onClickBuscar()">Buscar</button>
+<button (click)="onClickBuscarAsync()">Buscar Async</button>
+<button (click)="onClickBuscarRx()">Buscar Rx</button>
+
+<div *ngIf="libros.length">
+    <h3>Lista de libros</h3>
+    <ul>
+        <li *ngFor="let libro of libros">
+            {{libro.titulo}} - {{libro.autores}}
+        </li>
+    </ul>
+</div>
+

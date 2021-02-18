@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Alumno, Curso, Turno } from 'src/app/models/alumno';
 import { CURSOS, TURNOS } from 'src/app/models/maestros.data';
 
+
 @Component({
   selector: 'vwn-form-td',
   templateUrl: './form-td.component.html',

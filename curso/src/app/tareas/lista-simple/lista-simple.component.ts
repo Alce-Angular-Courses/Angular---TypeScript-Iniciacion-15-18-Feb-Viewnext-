@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Tarea } from 'src/app/models/tarea';
+import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'vwn-lista-simple',
@@ -10,10 +11,10 @@ export class ListaSimpleComponent implements OnInit {
   tareas: Array<Tarea>;
   tarea: Tarea;
 
-  constructor() { }
+  constructor(private storage: StorageService) { }
 
   ngOnInit(): void {
-    this.tareas = []
+    this.tareas = this.storage.getTareas()
     this.tarea = new Tarea()
   }
 
@@ -24,10 +25,16 @@ export class ListaSimpleComponent implements OnInit {
     this.tareas.push(this.tarea)
     this.tarea = new Tarea()
     console.log(this.tareas)
+    this.salvar()
   }
 
   onClickDelete() {
     this.tareas = []
-    console.log(this.tareas)
+    this.salvar()
+  }
+
+  private salvar() {
+    const n = this.storage.setTareas(this.tareas)
+    console.log(n)
   }
 }

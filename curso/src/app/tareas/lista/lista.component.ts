@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Tarea } from 'src/app/models/tarea';
+import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'vwn-lista',
@@ -9,14 +10,16 @@ import { Tarea } from 'src/app/models/tarea';
 })
 export class ListaComponent implements OnInit {
   tareas: Array<Tarea>; 
-  store: string;
+  /* store: string; */
 
-  constructor() { }
+  constructor(private storage: StorageService) { }
 
   ngOnInit(): void {
-      this.store = 'tareas'
-      this.tareas = localStorage.getItem(this.store) 
-        ? JSON.parse(localStorage.getItem(this.store)) : []
+      /* this.store = 'tareas' */
+      this.tareas = this.storage.getTareas()
+      
+      // localStorage.getItem(this.store) 
+      //   ? JSON.parse(localStorage.getItem(this.store)) : []
 
   }
 
@@ -43,8 +46,9 @@ export class ListaComponent implements OnInit {
     this.saveStore()
   }
 
-  saveStore() {
-    localStorage.setItem(this.store, JSON.stringify(this.tareas))
+  private saveStore() {
+    const n = this.storage.setTareas(this.tareas)
+    //localStorage.setItem(this.store, JSON.stringify(this.tareas))
+    console.log('Salvado número', n)
   }
-
 }
