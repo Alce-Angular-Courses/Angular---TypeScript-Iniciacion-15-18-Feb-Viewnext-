@@ -1,14 +1,19 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Libro } from '../models/libro';
 import { LIBROS } from '../models/libros.data';
+import { map } from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root'
 })
 export class LibrosService {
-
-  constructor() { }
+  urlBase: string;
+  constructor(private http: HttpClient) {
+    this.urlBase = environment.urlLibros
+   }
 
   getMock(clave): Array<Libro> {
     return LIBROS
@@ -33,11 +38,19 @@ export class LibrosService {
 
   }
   
-  
-  // Promise {
-  //    (resolve,reject) => {
-  //     
-  //   })
-  // }
+  getLibros(clave): Observable<Array<Libro>> {
+    return this.http.get(this.urlBase+clave)
+    .pipe(
+      map(
+        (resp:any) => resp.items.map(item => {
+          return new Libro(
+            item.id, 
+            item.volumeInfo.title, 
+            item.volumeInfo.authors
+            )
+        })
+      )
+    )
+  }
 
 }

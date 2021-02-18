@@ -1,0 +1,14 @@
+
+<h2>Libros en google byservicio</h2>
+<input type="text" placeholder="Clave de búsqueda" [(ngModel)]="clave">
+<button (click)="onClickBuscar()">Buscar</button>
+<!-- <button (click)="onClickBuscarRx()">Buscar Rx</button> -->
+
+<div *ngIf="libros.length">
+    <h3>Lista de libros</h3>
+    <ul>
+        <li *ngFor="let libro of libros">
+            {{libro.titulo}} - {{libro.autores}}
+        </li>
+    </ul>
+</div>
