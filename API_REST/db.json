@@ -1,0 +1,49 @@
+{
+  "libros": [
+    {
+      "id": 1,
+      "titulo": "Angular",
+      "autor": [
+        "Pepe Perez"
+      ]
+    },
+    {
+      "id": 2,
+      "titulo": "Angular avanzado",
+      "autor": [
+        "Ernesto Lopez"
+      ]
+    },
+    {
+      "id": 3,
+      "titulo": "Angular para torpes",
+      "autor": [
+        "Elena Martinez"
+      ]
+    },
+    {
+      "id": 4,
+      "autor": [
+        "Antonio Lopez"
+      ],
+      "titulo": "React"
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

@@ -1,0 +1,15 @@
+<h2>API de libros</h2>
+<input type="text" placeholder="Titulo" [(ngModel)]="titulo">
+<input type="text" placeholder="Autor" [(ngModel)]="autor">
+<button (click)="onClickAdd()">Añadir</button>
+<button (click)="onClickMostrar()">Mostrar</button>
+
+
+<div *ngIf="libros.length">
+    <h3>Lista de libros</h3>
+    <ul>
+        <li *ngFor="let libro of libros">
+            {{libro.titulo}} - {{libro.autor}}
+        </li>
+    </ul>
+</div>
